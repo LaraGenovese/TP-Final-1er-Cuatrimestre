@@ -12,6 +12,10 @@ public class PlayerBehaviour : MonoBehaviour
     int hasJump;
     Rigidbody rb;
 
+    AudioSource fuenteAudio;
+    public AudioClip jump;
+    public AudioClip side;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         hasJump = maxJumps;
         rb = GetComponent<Rigidbody>();
+        fuenteAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,17 +32,26 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += new Vector3(0, 0, movementSpeed);
+
+            fuenteAudio.clip = side;
+            fuenteAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position -= new Vector3(0, 0, movementSpeed);
+
+            fuenteAudio.clip = side;
+            fuenteAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && hasJump > 0)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             hasJump--;
+
+            fuenteAudio.clip = jump;
+            fuenteAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))

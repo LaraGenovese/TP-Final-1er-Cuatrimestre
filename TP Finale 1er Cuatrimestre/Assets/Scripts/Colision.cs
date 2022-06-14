@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class Colision : MonoBehaviour
 {
-    public GameObject Panel_perdiste;
+    public GameObject Panel_perder;
+    public PlaneBehaviour planeScript;
 
+    AudioSource fuenteAudio;
+    public AudioClip gameOver;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        fuenteAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,10 +25,13 @@ public class Colision : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "Pared 1" || other.gameObject.name == "Pared 2" || other.gameObject.name == "Obstaculo")
+        if (other.gameObject.name == "Obstaculo")
         {
+            Panel_perder.SetActive(true);
+            planeScript.movementSpeed = 0;
+            fuenteAudio.clip = gameOver;
+            fuenteAudio.Play();
             Destroy(gameObject);
-            Panel_perdiste.SetActive(true);
         }
     }
 }
