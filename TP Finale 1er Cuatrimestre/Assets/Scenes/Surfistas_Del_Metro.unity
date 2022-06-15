@@ -729,7 +729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -129.63177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368758979
@@ -2521,8 +2521,9 @@ MonoBehaviour:
   movementSpeed: 0.1
   coinsScript: {fileID: 264974457}
   txt_time: {fileID: 1318580355}
+  tiempo: {fileID: 1318580353}
   currentTime: 0
-  txt_tiempo: {fileID: 0}
+  clone: {fileID: 3233174534690406961, guid: 6a0e30cb2281034439724c395d4aa04c, type: 3}
 --- !u!1 &1263012532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,7 +4647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GANASTE!
+  m_Text: GANASTE
 --- !u!222 &1791707571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4798,7 +4799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -129.63177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2028810413

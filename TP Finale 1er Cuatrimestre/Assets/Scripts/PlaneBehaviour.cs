@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class PlaneBehaviour : MonoBehaviour
 {
-    public float movementSpeed = 0.1f;
+    public float movementSpeed;
     public Coins coinsScript;
+    private float remainingTime;
 
     public Text txt_time;
-    public float currentTime = 3;
+    public GameObject tiempo;
+    public float currentTime;
 
-    public GameObject txt_tiempo;
+    public GameObject clone;
+    int cantDeCubos = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        while (cantDeCubos < 100)
+        {
+            Instantiate(clone);
+            cantDeCubos += 1;
+        }
     }
 
     // Update is called once per frame
@@ -24,12 +31,16 @@ public class PlaneBehaviour : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        txt_time.text = (3 - Mathf.Floor(currentTime)).ToString();
+        remainingTime = 3 - Mathf.Floor(currentTime);
 
-        if(txt_time.text == "0")
+        txt_time.text = remainingTime.ToString();
+
+        if (remainingTime <= 0)
         {
             transform.position += new Vector3(movementSpeed, 0, 0);
+            tiempo.SetActive(false);
         }
+
 
         if (coinsScript.monedas == 10)
         {
